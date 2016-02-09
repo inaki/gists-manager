@@ -15,6 +15,21 @@ body {
   border: 0;
 }
 
+
+/*search & buttons*/
+input.search {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.btn-group {
+  display: flex;
+}
+.btn {
+  flex: 1;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
 /*
  * Sidebar
  */

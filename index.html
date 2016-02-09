@@ -29,25 +29,24 @@
         <div class="content-side" ng-controller="MainCtrl">
 
            <div class="gists-list">
-             <input type="text" class="form-control"
-                    class="search"
+             <input type="text" class="form-control search"
                     type="text"
                     ng-model="query"
                     placeholder="Enter name of gist">
 
-             <div class="buttons-list">
+
                <div class="btn-group" data-toggle="buttons">
                   <label class="btn btn-primary active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked ng-click="sendPrivacy('all')"> all
+                    <input type="radio" name="options" id="all" autocomplete="off" checked ng-click="sendPrivacy('all')"> all
                   </label>
                   <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option2" autocomplete="off" ng-click="sendPrivacy('public')"> public
+                    <input type="radio" name="options" id="public" autocomplete="off" ng-click="sendPrivacy('public')"> public
                   </label>
                   <label class="btn btn-primary">
-                    <input type="radio" name="options" id="option3" autocomplete="off" ng-click="sendPrivacy('private')"> private
+                    <input type="radio" name="options" id="private" autocomplete="off" ng-click="sendPrivacy('private')"> private
                   </label>
                 </div>
-             </div>
+
 
              <div ui-sref="gist.code({id:$index})" class="gist" ng-repeat="gist in gists | filter:{public: privacy}">
                <div class="files" ng-repeat="d in gist.files">
@@ -69,7 +68,7 @@
     </div>
   </div>
 
-
+  <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
 </body>
 </html>
