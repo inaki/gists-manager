@@ -36,9 +36,17 @@
                     placeholder="Enter name of gist">
 
              <div class="buttons-list">
-               <button ng-click="sendPrivacy('all')">all</button>
-               <button ng-click="sendPrivacy('public')">public</button>
-               <button ng-click="sendPrivacy('private')">private</button>
+               <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-primary active">
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked ng-click="sendPrivacy('all')"> all
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option2" autocomplete="off" ng-click="sendPrivacy('public')"> public
+                  </label>
+                  <label class="btn btn-primary">
+                    <input type="radio" name="options" id="option3" autocomplete="off" ng-click="sendPrivacy('private')"> private
+                  </label>
+                </div>
              </div>
 
              <div ui-sref="gist.code({id:$index})" class="gist" ng-repeat="gist in gists | filter:{public: privacy}">
@@ -61,5 +69,7 @@
     </div>
   </div>
 
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
 </body>
 </html>

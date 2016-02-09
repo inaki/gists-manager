@@ -23,7 +23,7 @@ angular.module('gistEditor', ['ui.router','ui.ace'])
   // Simple GET request example:
   $http({
     method: 'GET',
-    url: 'https://api.github.com/users/inaki/gists?access_token=32d891da827156ea65612b711446282524769dda'
+    url: 'https://api.github.com/users/inaki/gists?access_token= '+ token +''
     // url: 'https://api.github.com/users/clariture-test/gists?access_token=83c36d09aa7d3f91c867d12b30a6340af21e5397'
   }).then(function successCallback(response) {
     $scope.gists = response.data;
