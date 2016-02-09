@@ -1,0 +1,8 @@
+<div ng-repeat="g in gist.files">
+  <div ui-ace="{
+    onLoad: aceLoaded,
+    onChange: aceChanged
+    }"
+    ng-model="rawCode">
+  </div>
+</div>

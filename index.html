@@ -12,7 +12,54 @@
 </head>
 <body ng-app="gistEditor">
 
+  <!-- navbar  -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Gist Manager</a>
+        </div>
+      </div>
+    </nav>
+  <!-- end navbar -->
 
+  <div class="container-fluid">
+    <div class="row">
+      <!-- sidebar  -->
+      <div class="col-sm-5 col-md-4 sidebar">
+        <div class="content-side" ng-controller="MainCtrl">
+
+           <div class="gists-list">
+             <input type="text" class="form-control"
+                    class="search"
+                    type="text"
+                    ng-model="query"
+                    placeholder="Enter name of gist">
+
+             <div class="buttons-list">
+               <button ng-click="sendPrivacy('all')">all</button>
+               <button ng-click="sendPrivacy('public')">public</button>
+               <button ng-click="sendPrivacy('private')">private</button>
+             </div>
+
+             <div ui-sref="gist.code({id:$index})" class="gist" ng-repeat="gist in gists | filter:{public: privacy}">
+               <div class="files" ng-repeat="d in gist.files">
+                 <span class="filename">{{d.filename}}</span> |
+                 <span class="size">size: {{d.size}}</span>
+               </div>
+               <span class="user">by: {{ gist.owner.login}}</span>
+             </div>
+           </div>
+        </div>
+      </div>
+
+
+      <!-- editor view -->
+      <div class="col-sm-7 col-sm-offset-3 col-md-8 col-md-offset-2 main">
+       <ui-view></ui-view>
+      </div>
+       <!-- end editor view -->
+    </div>
+  </div>
 
 </body>
 </html>
