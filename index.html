@@ -57,7 +57,7 @@
                  <span class="filename">{{d.filename}}</span>
                </div>
                <br>
-                <span class="owner">by: <a href="">{{ gist.owner.login }}</a></span> 
+                <span class="owner">keep having: <a ng-href="{{ gist.url }}">fun</a></span> 
                 coded on <span class="date">{{gist.created_at | date:'MM/dd/yyyy' }} </span> and last updated on <span class="date">{{ gist.updated_at | date:'MM/dd/yyyy' }}</span>.
                <div ng-class="{arrow: $index == selected}"></div>
              </div>
