@@ -54,10 +54,25 @@ angular.module('gistEditor', ['ui.router','ui.ace', 'ngAnimate'])
     // function for the public/private/all filter
     $scope.sendPrivacy = function (status) {
         if (status == 'private') {
+          $('.btn').click(function(e){
+            $('.btn').removeClass('btn-active');
+            $(this).addClass('btn-active');
+            e.stopPropagation();
+          });
           return $scope.privacy = false;
         } else if(status == 'public') {
+          $('.btn').click(function(e){
+            $('.btn').removeClass('btn-active');
+            $(this).addClass('btn-active');
+            e.stopPropagation();
+          });
           return $scope.privacy = true;
         } else if (status == 'all') {
+          $('.btn').click(function(e){
+            $('.btn').removeClass('btn-active');
+            $(this).addClass('btn-active');
+            e.stopPropagation();
+          });
           return $scope.privacy = undefined;
         }
      };
