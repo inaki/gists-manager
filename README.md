@@ -7,8 +7,8 @@ I integrate a ACE editor with the idea to create or edit you gist from your loca
 ## Technologies used:
 - The awesome AngularJS
 - Bower for managing you libraries
-- ACE UI editor for angular apps
-- ngAnimate to make it sexy
+- [ACE UI](http://angular-ui.github.io/ui-ace/) editor for angular apps
+- [ngAnimate](https://docs.angularjs.org/api/ngAnimate) to make it sexy
 - Bootstrap for base styles
 - jQuery for some minimal DOM manipulation
 
@@ -32,4 +32,4 @@ $ http-server
 - go to your browser http://localhost:8080 and enjoy watching =)
 
 ## Some considerations
-If you git push your the project with your token github automatically will invalidate it. So to avoid this just use an environment variable and you'll be free to go.
+If you git push your the project with your token github automatically will invalidate it. So to avoid this just use an environment variable and you'll be good to go.

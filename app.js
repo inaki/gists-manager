@@ -1,6 +1,5 @@
 angular.module('gistEditor', ['ui.router','ui.ace', 'ngAnimate'])
 .config(function($stateProvider, $urlRouterProvider){
-
       $urlRouterProvider.otherwise("/gist");
 
       $stateProvider
@@ -20,34 +19,39 @@ angular.module('gistEditor', ['ui.router','ui.ace', 'ngAnimate'])
         });
 })
 .controller('MainCtrl', function($scope, $http, $state, $stateParams){
-  // Simple GET request example:
+  // GET request to github gist API
   $http({
     method: 'GET',
-    url: 'https://api.github.com/users/{user}/gists?access_token= '+ token +'';
+    url: 'https://api.github.com/users/{user}/gists?access_token= '+ token +''
   }).then(function successCallback(response) {
     $scope.gists = response.data;
     $scope.gist = $scope.gists[$stateParams.id];
-    }, function errorCallback(response) {});
+  }, function errorCallback(errorMsg) {
+      console.log('oh oh ' + errorMsg + ' happen!');
+  });
 
-    $scope.aceLoaded = function(_editor) {
-      var gistCode = $scope.gist;
-      var file_names = [];
-      // get the name of the gist file
-      for (name in gistCode["files"]){ file_names.push(name);}
+  // code for geting the code and inserted on the ACE editor
+  $scope.aceLoaded = function(_editor) {
+    var gistCode = $scope.gist;
+    var file_names = [];
+    // get the name of the gist file
+    for (name in gistCode["files"]){ file_names.push(name);}
 
-      var url = gistCode["files"][file_names[0]].raw_url.toString();
+    var url = gistCode["files"][file_names[0]].raw_url.toString();
 
-      $http.get(url).then(function(response){
-        $scope.rawCode = response.data;
-      });
+    $http.get(url).then(function(response){
+      $scope.rawCode = response.data;
+    });
 
-      //console.log(gistCode["files"][file_names[0]].raw_url.toString());
-      $scope.aceSession = _editor.getSession();
+    //console.log(gistCode["files"][file_names[0]].raw_url.toString());
+    $scope.aceSession = _editor.getSession();
 
     };
 
+    // variable that help us start with the list of all the gists, part of public/private filter
     $scope.privacy = undefined;
 
+    // function for the public/private/all filter
     $scope.sendPrivacy = function (status) {
         if (status == 'private') {
           return $scope.privacy = false;
@@ -58,13 +62,12 @@ angular.module('gistEditor', ['ui.router','ui.ace', 'ngAnimate'])
         }
      };
 
-    // mark the active gist
+    // for marking the active gist and help the arrow to be in his place
     $scope.selected = 0;
 
-      $scope.select= function(index) {
-         $scope.selected = index;
-         console.log(index);
-      };
+    $scope.select= function(index) {
+      $scope.selected = index;
+    };
 
 
 });

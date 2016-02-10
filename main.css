@@ -1,173 +1,241 @@
-/*
- * Base structure
- */
+/* =======================================
+           * Base Styles
+ ========================================*/
+body
+{
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
 
-/* Move down content because we have a fixed navbar that is 50px tall */
-body {
-  font-family: 'Karla', sans-serif;
-  padding-top: 50px;
-}
+    padding-top: 50px;
+}  /* Move down content because we have a fixed navbar that is 50px tall */
 
-.navbar > .container-fluid .navbar-brand{
-  color: white;
-  margin-left: -7px;
-  font-size: 2.8rem;
-}
-/*
- * Top navigation
- * Hide default border to remove 1px line.
- */
-.navbar-fixed-top {
-  border: 0;
-}
-.navbar {
-  background: #7151AE;
-}
+/* =======================================
+          * Layout Styles
+ ========================================*/
 
+.navbar-fixed-top
+{
+    border: 0;
+}
+.navbar
+{
+    background: #7151ae;
+}
+.navbar > .container-fluid .navbar-brand
+{
+    font-size: 44px;
+    font-size: 2.8rem;
 
-/*search & buttons*/
-input.search {
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-}
-.btn-group {
-  display: flex;
-}
-.btn-group .btn {
-  background: white;
-  color: #714EB0;
-  flex: 1;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-}
-.btn-group .btn.active {
-  color: #E2DDFA;
-  background: #5834B0;
-}
-/*
- * Sidebar
- */
+    margin-left: -7px;
 
-/* Hide for mobile, show later */
-.sidebar {
-  display: none;
-}
-.filename {
-  font-weight: lighter;
-  font-size: 2rem;
-}
-.sidebar .date {
-  color: dimgray;
-}
-.arrow {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-right: 10px solid #F6F6F6;
-  float: right;
-  margin-right: -40px;
-  margin-top: -23px;
-}
-@media (min-width: 768px) {
-  .sidebar {
-    position: fixed;
-    top: 49px;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    padding: 20px;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #384047;
-  }
-  .main {
-    position: fixed;
-    right: 0;
-    top: 45px;
-    bottom: 0;
-    z-index: 1000;
-    display: block;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f6f6f6;
-  }
+    color: white;
 }
 
-/*
- * Main content
- */
 
-.main {
-  padding: 20px;
-}
-@media (min-width: 768px) {
-  .main {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
-.main .page-header {
-  margin-top: 0;
-}
 
-.code-area {
-  padding: 10px 20px;
-  margin: auto;
-  width: 100%;
+
+/* =======================================
+          * Sidebar Styles
+ ========================================*/
+input.search
+{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
-.code-area h3 {
-  margin-top: 0px;
+.btn-group
+{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
-.credits {
-  line-height: 2rem;
-  color: #A9A9A9;
+.btn-group .btn
+{
+    color: #714eb0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background: white;
+
+    -webkit-box-flex: 1;
+
+    -webkit-flex: 1;
+
+        -ms-flex: 1;
+
+            flex: 1;
 }
-.credits a {
-  color: #582DB3;
+.btn-group .btn.active
+{
+    color: #e2ddfa;
+    background: #5834b0;
 }
-.description {
+.sidebar
+{
+    display: none;
+    font-size: 1.3rem;
+}
+.sidebar .filename
+{
+    font-size: 2rem;
+    font-weight: lighter;
+}
+.sidebar .date
+{
+    color: dimgray;
+}
+.arrow
+{
+    float: right;
+
+    width: 0;
+    height: 0;
+    margin-top: -41px;
+    margin-right: -41px;
+
+    border-top: 10px solid transparent;
+    border-right: 10px solid #f6f6f6;
+    border-bottom: 10px solid transparent;
+}
+.gist-subs {
   margin-top: 20px;
 }
-.description .text {
-  color: gray;
+
+/* =======================================
+          * Editor View Styles
+    ========================================*/
+
+.main
+{
+    padding: 20px;
 }
-.ace_editor {
-  width: 100%;
-  height: 70vh;
+@media (min-width: 768px)
+{
+    .main
+    {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
 }
-.gist {
-  background: white;
-  margin: 5px 0px;
-  padding: 10px 20px;
-  border-radius: 4px;
-  -webkit-transition: all 1s; /* Safari */
-  transition: all 1s;
-}
-.activeGist {
-  background: white;
-  margin: 15px 0px;
-  padding: 15px 20px;
+.main .page-header
+{
+    margin-top: 0;
 }
 
+.code-area
+{
+    width: 100%;
+    margin: auto;
+    padding: 10px 20px;
+}
+.code-area h3
+{
+    margin-top: 0;
+}
+.credits
+{
+    line-height: 32px;
+    line-height: 2rem;
+
+    color: #a9a9a9;
+}
+.credits a
+{
+    color: #582db3;
+}
+.description
+{
+    margin-top: 20px;
+}
+.description .text
+{
+    color: gray;
+}
+.ace_editor
+{
+    width: 100%;
+    height: 70vh;
+}
+.gist
+{
+    margin: 5px 0;
+    padding: 10px 20px;
+
+    -webkit-transition: all 1s; /* Safari */
+            transition: all 1s;
+
+    border-radius: 4px;
+    background: white;
+}
+.activeGist
+{
+    margin: 15px 0;
+    padding: 15px 20px;
+
+    background: white;
+}
 
 /*animating views*/
 
-.fadeIn.ng-enter {
-  -webkit-transition:0.8s linear all;
-  -moz-transition:0.8s linear all;
-  -o-transition: 0.8s linear all;
-  -ms-transition: 0.8s linear all;
-  transition:0.8s linear all;
+.fadeIn.ng-enter
+{
+    -webkit-transition: .8s linear all;
+            transition: .8s linear all;
 }
 
 
-.fadeIn.ng-enter {
-  z-index:100;
-  opacity:0;
+.fadeIn.ng-enter
+{
+    z-index: 100;
+
+    opacity: 0;
+
+    filter: alpha(opacity=0);
 }
-.fadeIn.ng-enter.ng-enter-active {
-  top:0;
-  opacity:1;
+.fadeIn.ng-enter.ng-enter-active
+{
+    top: 0;
+
+    opacity: 1;
+
+    filter: alpha(opacity=100);
+}
+
+
+/* =======================================
+              * Base Media Queries Styles
+     ========================================*/
+
+
+@media (min-width: 768px)
+{
+    .sidebar
+    {
+        position: fixed;
+        z-index: 1000;
+        top: 49px;
+        bottom: 0;
+        left: 0;
+
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+
+        padding: 20px;
+
+        background-color: #384047;
+    }
+    .main
+    {
+        position: fixed;
+        z-index: 1000;
+        top: 45px;
+        right: 0;
+        bottom: 0;
+
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+
+        background-color: #f6f6f6;
+    }
 }

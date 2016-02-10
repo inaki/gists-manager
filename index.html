@@ -2,16 +2,16 @@
 <head>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
 
   <script src="bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
-  <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+  <script src="bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="bower_components/angular-ui-ace/ui-ace.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-ui-ace/ui-ace.min.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
   <script src="app.js" charset="utf-8"></script>
 </head>
 <body ng-app="gistEditor">
@@ -26,19 +26,20 @@
     </nav>
   <!-- end navbar -->
 
+
   <div class="container-fluid">
+
     <div class="row">
-      <!-- sidebar  -->
+
+    <!-- sidebar  -->
       <div class="col-sm-5 col-md-4 sidebar">
         <div class="content-side" ng-controller="MainCtrl">
 
            <div class="gists-list">
-             <input type="text" class="form-control search"
-                    type="text"
-                    ng-model="query"
-                    placeholder="Enter name of gist">
+             <!-- search section -->
+               <input class="form-control search" type="text" ng-model="query" placeholder="Enter name of gist">
 
-
+              <!-- filter buttons -->
                <div class="btn-group" data-toggle="buttons">
                   <label class="btn active">
                     <input type="radio" name="options" id="all" autocomplete="off" checked ng-click="sendPrivacy('all')"> all
@@ -50,28 +51,35 @@
                     <input type="radio" name="options" id="private" autocomplete="off" ng-click="sendPrivacy('private')"> private
                   </label>
                 </div>
+                <!-- end of filter buttons -->
+            <!-- end of search section -->
 
-
+            <!-- ng-repeat list of gists -->
              <div ui-sref="gist.code({id:$index})" ng-click="select($index)" ng-class="{gist : true, activeGist: $index == selected}" ng-repeat="gist in gists | filter:{public: privacy} | filter:query">
+
                <div class="files" ng-repeat="d in gist.files">
                  <span class="filename">{{d.filename}}</span>
                </div>
-               <br>
-                coded on <span class="date">{{gist.created_at | date:'MM/dd/yyyy' }} </span> and last updated on <span class="date">{{ gist.updated_at | date:'MM/dd/yyyy' }}</span>.
+               <div class="gist-subs">
+                 coded on <span class="date">{{gist.created_at | date:'MM/dd/yyyy' }} </span> and last updated on <span class="date">{{ gist.updated_at | date:'MM/dd/yyyy' }}</span>.
+               </div>
                <div ng-class="{arrow: $index == selected}"></div>
              </div>
+             <!-- end of gists list -->
            </div>
         </div>
       </div>
+    <!-- end of sidebar -->
 
-
-      <!-- editor view -->
+    <!-- editor view -->
       <div class="col-sm-7 col-sm-offset-3 col-md-8 col-md-offset-2 main">
        <ui-view class="fadeIn"></ui-view>
       </div>
-       <!-- end editor view -->
-    </div>
-  </div>
+    <!-- end editor view -->
 
+    </div>
+    <!-- end of row div -->
+  </div>
+  <!-- container-fluid end div -->
 </body>
 </html>

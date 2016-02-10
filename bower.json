@@ -1,7 +1,7 @@
 {
   "name": "gists-manager",
   "homepage": "https://github.com/inaki/gists-manager",
-  "description": "",
+  "description": "gist manager build with angular using github gist api",
   "main": "",
   "moduleType": [],
   "license": "MIT",
@@ -15,6 +15,9 @@
   "dependencies": {
     "angular": "^1.5.0",
     "angular-ui-ace": "^0.2.3",
-    "angular-animate": "^1.5.0"
+    "angular-animate": "^1.5.0",
+    "bootstrap": "^3.3.6",
+    "angular-ui-router": "^0.2.18",
+    "jquery": "^2.2.0"
   }
 }
