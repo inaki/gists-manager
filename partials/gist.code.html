@@ -1,6 +1,6 @@
 <div class="code-area animated bounce" ng-repeat="g in gist.files">
   <h3>{{ g.filename }}</h3>
-  <span class="credits">created by: <a class="owner" href="">{{ gist.owner.login }}</a></span>
+  <div class="credits">created by: <a class="owner" href="">{{ gist.owner.login }} </a> <span class="fun">keep having: <a ng-href="{{ gist.html_url }}">fun</a></span> </div>
 
   <div class="description">
     <p>description: <span class="text">{{ gist.description }}</span></p>

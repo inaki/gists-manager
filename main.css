@@ -56,9 +56,6 @@ input.search {
   font-weight: lighter;
   font-size: 2rem;
 }
-.sidebar .owner {
-  display: block;
-}
 .sidebar .date {
   color: dimgray;
 }
@@ -70,7 +67,7 @@ input.search {
   border-right: 10px solid #F6F6F6;
   float: right;
   margin-right: -40px;
-  margin-top: -36px;
+  margin-top: -23px;
 }
 @media (min-width: 768px) {
   .sidebar {
