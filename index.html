@@ -41,15 +41,9 @@
 
               <!-- filter buttons -->
                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn active">
-                    <input type="radio" name="options" id="all" autocomplete="off" checked ng-click="sendPrivacy('all')"> all
-                  </label>
-                  <label class="btn">
-                    <input type="radio" name="options" id="public" autocomplete="off" ng-click="sendPrivacy('public')"> public
-                  </label>
-                  <label class="btn">
-                    <input type="radio" name="options" id="private" autocomplete="off" ng-click="sendPrivacy('private')"> private
-                  </label>
+                   <button class="btn" ng-click="sendPrivacy('all')">all</button>
+                   <button class="btn" ng-click="sendPrivacy('public')">public</button>
+                   <button class="btn" ng-click="sendPrivacy('private')">private</button>
                 </div>
                 <!-- end of filter buttons -->
             <!-- end of search section -->

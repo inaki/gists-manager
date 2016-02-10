@@ -22,7 +22,7 @@ angular.module('gistEditor', ['ui.router','ui.ace', 'ngAnimate'])
   // GET request to github gist API
   $http({
     method: 'GET',
-    url: 'https://api.github.com/users/{user}/gists?access_token= '+ token +''
+    url: 'https://api.github.com/users/{user}/gists?access_token= '+ token +'';
   }).then(function successCallback(response) {
     $scope.gists = response.data;
     $scope.gist = $scope.gists[$stateParams.id];
@@ -61,6 +61,8 @@ angular.module('gistEditor', ['ui.router','ui.ace', 'ngAnimate'])
           return $scope.privacy = undefined;
         }
      };
+
+     console.log($scope.privacy);
 
     // for marking the active gist and help the arrow to be in his place
     $scope.selected = 0;
