@@ -13,7 +13,7 @@
 <body ng-app="gistEditor">
 
   <!-- navbar  -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Gist Manager</a>
@@ -36,19 +36,19 @@
 
 
                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn btn-primary active">
+                  <label class="btn active">
                     <input type="radio" name="options" id="all" autocomplete="off" checked ng-click="sendPrivacy('all')"> all
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn">
                     <input type="radio" name="options" id="public" autocomplete="off" ng-click="sendPrivacy('public')"> public
                   </label>
-                  <label class="btn btn-primary">
+                  <label class="btn">
                     <input type="radio" name="options" id="private" autocomplete="off" ng-click="sendPrivacy('private')"> private
                   </label>
                 </div>
 
 
-             <div ui-sref="gist.code({id:$index})" class="gist" ng-repeat="gist in gists | filter:{public: privacy}">
+             <div ui-sref="gist.code({id:$index})" class="gist" ng-repeat="gist in gists | filter:{public: privacy} | filter:query">
                <div class="files" ng-repeat="d in gist.files">
                  <span class="filename">{{d.filename}}</span> |
                  <span class="size">size: {{d.size}}</span>

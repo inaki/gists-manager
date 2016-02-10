@@ -7,12 +7,19 @@ body {
   padding-top: 50px;
 }
 
+a.navbar-brand {
+  color: white;
+}
+
 /*
  * Top navigation
  * Hide default border to remove 1px line.
  */
 .navbar-fixed-top {
   border: 0;
+}
+.navbar {
+  background: #7151AE;
 }
 
 
@@ -24,12 +31,17 @@ input.search {
 .btn-group {
   display: flex;
 }
-.btn {
+.btn-group .btn {
+  background: white;
+  color: #714EB0;
   flex: 1;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
 }
-
+.btn-group .btn.active {
+  color: #E2DDFA;
+  background: #5834B0;
+}
 /*
  * Sidebar
  */
@@ -41,7 +53,7 @@ input.search {
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
-    top: 51px;
+    top: 49px;
     bottom: 0;
     left: 0;
     z-index: 1000;
@@ -49,7 +61,7 @@ input.search {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: tomato;
+    background-color: #384047;
   }
   .main {
     position: fixed;
@@ -60,7 +72,7 @@ input.search {
     display: block;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: blue;
+    background-color: #f6f6f6;
   }
 }
 
@@ -81,14 +93,34 @@ input.search {
   margin-top: 0;
 }
 
-.ace_editor {
+.code-area {
+  padding: 10px 20px;
   margin: auto;
-  width: 90%;
-  height: 90vh;
+  width: 100%;
+}
+.code-area h3 {
+  margin-top: 0px;
+}
+.credits {
+  line-height: 2rem;
+  color: gray;
+}
+.credits .date {
+  color: dimgray;
+}
+.description {
+  margin-top: 20px;
+}
+.description .text {
+  color: gray;
+}
+.ace_editor {
+  width: 100%;
+  height: 70vh;
 }
 .gist {
   background: white;
-  margin: 5px;
+  margin: 5px 0px;
   padding: 10px 20px;
   border-radius: 4px;
 }

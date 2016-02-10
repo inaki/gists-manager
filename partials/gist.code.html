@@ -1,4 +1,10 @@
-<div ng-repeat="g in gist.files">
+<div class="code-area" ng-repeat="g in gist.files">
+  <h3>{{ g.filename }}</h3>
+  <span class="credits">created by: <a class="owner" href="">{{ gist.owner.login }}</a> on <span class="date">{{gist.created_at | date:'MM/dd/yyyy @ h:mma' }} </span> and last update on <span class="date">{{ gist.updated_at | date:'MM/dd/yyyy @ h:mma' }}</span>.</span>
+
+  <div class="description">
+    <p>description: <span class="text">{{ gist.description }}</span></p>
+  </div>
   <div ui-ace="{
     onLoad: aceLoaded,
     onChange: aceChanged
