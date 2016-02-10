@@ -4,13 +4,15 @@
 
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
+  font-family: 'Karla', sans-serif;
   padding-top: 50px;
 }
 
-a.navbar-brand {
+.navbar > .container-fluid .navbar-brand{
   color: white;
+  margin-left: -7px;
+  font-size: 2.8rem;
 }
-
 /*
  * Top navigation
  * Hide default border to remove 1px line.
@@ -49,6 +51,26 @@ input.search {
 /* Hide for mobile, show later */
 .sidebar {
   display: none;
+}
+.filename {
+  font-weight: lighter;
+  font-size: 2rem;
+}
+.sidebar .owner {
+  display: block;
+}
+.sidebar .date {
+  color: dimgray;
+}
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #F6F6F6;
+  float: right;
+  margin-right: -40px;
+  margin-top: -36px;
 }
 @media (min-width: 768px) {
   .sidebar {
@@ -103,10 +125,10 @@ input.search {
 }
 .credits {
   line-height: 2rem;
-  color: gray;
+  color: #A9A9A9;
 }
-.credits .date {
-  color: dimgray;
+.credits a {
+  color: #582DB3;
 }
 .description {
   margin-top: 20px;
@@ -123,4 +145,32 @@ input.search {
   margin: 5px 0px;
   padding: 10px 20px;
   border-radius: 4px;
+  -webkit-transition: all 1s; /* Safari */
+  transition: all 1s;
+}
+.activeGist {
+  background: white;
+  margin: 15px 0px;
+  padding: 15px 20px;
+}
+
+
+/*animating views*/
+
+.fadeIn.ng-enter {
+  -webkit-transition:0.8s linear all;
+  -moz-transition:0.8s linear all;
+  -o-transition: 0.8s linear all;
+  -ms-transition: 0.8s linear all;
+  transition:0.8s linear all;
+}
+
+
+.fadeIn.ng-enter {
+  z-index:100;
+  opacity:0;
+}
+.fadeIn.ng-enter.ng-enter-active {
+  top:0;
+  opacity:1;
 }
